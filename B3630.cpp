@@ -1,33 +1,23 @@
 #include<iostream>
-#include<malloc.h>
 using namespace std;
-struct a{
-    int id;
-    struct a *next;
-};
-int N;
-int main(){
-    cin >> N;
-    struct a b[1000001];
-    for(int i = 1; i <= N; i++){
-        int temp;
-        cin >> temp;
-        b[i].id = i;
-        if(temp == 0){
-            b[i].next= &b[0];
-            continue;
-        }
-        b[i].next=&b[temp];
-    }
-    int first;
-    cin >> first;
-    //cout << head->id << " " << head->next;
-    struct a *head = &b[first];
 
-    for(int i = 1; i < N; i++){
-        cout << head->id << " ";
-        head = head->next;
+int arr[1000001],ans[1000001],c,l;
+
+int main(){
+    cin >> c;
+    for(int i = 1;i <= c;i ++) {
+        cin >> arr[i];
+        if(arr[i] == 0) ans[c-1] = i;
     }
-    cout << head->id;
-    return 0;
+    cin >> l;
+    arr[0]=ans[0]=l;
+    int s = l;
+    int i = 1;
+    while(i < c){
+        int num = arr[s];
+        ans[i] = num;
+        s = ans[i];
+        i ++;
+    }
+    for(int i = 0; i<c;i++) cout << ans[i] << " ";
 }
