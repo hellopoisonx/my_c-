@@ -1,2 +1,4 @@
+#!name=sshd.hpxx
+#!desc=extra ssh rule
 [Rule]
 IP-CIDR,45.128.220.119,DIRECT
